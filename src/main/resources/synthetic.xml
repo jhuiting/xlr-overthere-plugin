@@ -101,8 +101,8 @@
         <property name="script" size="large" category="input" description="Script to execute on the host"/>
 
         <!-- output properties -->
-        <property name="output" required="false" category="output" description="Console output of the process"/>
-        <property name="error" required="false" category="output" description="Error output of the process"/>
+        <property name="output" required="false" category="output" description="Console output of the remote process (stdout)"/>
+        <property name="error" required="false" category="output" description="Error output of the remote process (stderr)"/>
     </type>
 
 </synthetic>

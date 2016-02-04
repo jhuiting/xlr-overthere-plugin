@@ -48,8 +48,8 @@ Input Properties:
 
 Output Properties:
 
-* `Output` is the variable in which the standard output will be stored.
-* `Error` is the variable in which the error output will be stored.
+* `Output` is the variable in which the remote process standard output will be stored.
+* `Error` is the variable in which the remote process error output will be stored.
 
 ### Host types ###
 
@@ -76,9 +76,8 @@ When XL Release creates a connection to the remote host and determines that it n
 ### Additional Overthere properties in XL Release
 
 Additional Overthere connection properties defined in the [Overthere documentation](https://github.com/xebialabs/overthere/blob/master/README.md) can be provided by using the **connectionOptions** key-value map.
-This map is available on the **remoteScript.Host** configuration and the **remoteScript.Overthere** task. When the same property is defined on both place, the task value overrides the host defined value.
-
-If you need to provide a different default value, or wish to provide an additional property to the end user, you can also create a `type-modification` in the `ext/synthetic.xml` file like this:
+This connection options are available on the **remoteScript.Host** configuration and the **remoteScript.Overthere** task. When the same property is defined on both, the task value overrides the host defined value.
+Note that the UI exposed configuration properties of the **remoteScript.Host** like `Connection Type`, can be overridden using the `Connection Options` map as well, e.g. connectionType=WINRM_NATIVE.
 
 	<type-modification type="remoteScript.SshHost">
 		<property name="listFilesCommand" hidden="true" default="/bin/ls -a1 {0}" />
