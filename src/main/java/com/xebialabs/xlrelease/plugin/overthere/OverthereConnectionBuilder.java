@@ -88,7 +88,7 @@ public class OverthereConnectionBuilder {
 
                 ConnectionOptions jumpstationOptions = new ConnectionOptions();
                 copyPropertiesToConnectionOptions(jumpstationOptions, item);
-                options.set(key, jumpstationOptions);
+                options.set(JUMPSTATION, jumpstationOptions);
                 break;
             }
             case WINRS_PROXY: {

@@ -14,6 +14,10 @@ See the XL Release Reference Manual for background information on XL Release and
 
 The Overthere plugin is an XL Release plugin that allows XL Release to manipulate files and execute commands on remote hosts. It does so by using the **Overthere** framework. Overthere is a Java library to manipulate files and execute processes on remote hosts, i.e. do stuff "over there". See the [Overthere Github repository](https://github.com/xebialabs/overthere) for more information.
 
+## Requirements
+
+* XL Release: 4.8.1 or higher
+
 ### Features ###
 
 * Supports SSH for connectivity to Unix, Windows and z/OS hosts.
@@ -26,10 +30,6 @@ The Overthere plugin is an XL Release plugin that allows XL Release to manipulat
 ## Installation
 
 Copy the plugin JAR file into the `SERVER_HOME/plugins` directory of XL Release.
-
-Update the JVM security policy at `SERVER_HOME/conf/script.policy` to contain the following entry:
-
-    permission java.net.SocketPermission "localhost:1024-65535", "connect, listen, accept, resolve";
 
 ## Supported Tasks
 

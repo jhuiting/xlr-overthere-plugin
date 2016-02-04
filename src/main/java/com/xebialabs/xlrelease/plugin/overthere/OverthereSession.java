@@ -9,20 +9,26 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import com.xebialabs.deployit.plugin.api.udm.ConfigurationItem;
-import com.xebialabs.overthere.*;
+import com.xebialabs.overthere.CmdLine;
+import com.xebialabs.overthere.OperatingSystemFamily;
+import com.xebialabs.overthere.OverthereConnection;
+import com.xebialabs.overthere.OverthereFile;
 import com.xebialabs.overthere.util.CapturingOverthereExecutionOutputHandler;
 import com.xebialabs.overthere.util.OverthereUtils;
 
 import static com.xebialabs.overthere.ConnectionOptions.OPERATING_SYSTEM;
 import static com.xebialabs.overthere.util.CapturingOverthereExecutionOutputHandler.capturingHandler;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class OverthereSession {
 
     private static final String SCRIPT_NAME = "uploaded-script";
-    private ConfigurationItem host;
+    private final ConfigurationItem host;
+    private final String extension;
 
     public OverthereSession(ConfigurationItem host) {
         this.host = host;
+        this.extension = host.<OperatingSystemFamily>getProperty(OPERATING_SYSTEM).getScriptExtension();
     }
 
     public CmdResponse execute(String script, String remotePath) {
@@ -35,8 +41,8 @@ public class OverthereSession {
                 connection.setWorkingDirectory(connection.getFile(remotePath));
             }
 
-            OverthereFile targetFile = connection.getTempFile(SCRIPT_NAME, host.<OperatingSystemFamily>getProperty(OPERATING_SYSTEM).getScriptExtension());
-            OverthereUtils.write(script.getBytes(), targetFile);
+            OverthereFile targetFile = connection.getTempFile(SCRIPT_NAME, extension);
+            OverthereUtils.write(script.getBytes(UTF_8), targetFile);
             targetFile.setExecutable(true);
 
             CmdLine scriptCommand = CmdLine.build(targetFile.getPath());
