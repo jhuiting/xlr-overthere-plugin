@@ -15,4 +15,4 @@ deploy:
   on:
     all_branches: true
     tags: true
-    repo: xebialabs-community/xlr-xldeploy-plugin
+    repo: xebialabs-community/xlr-overthere-plugin
