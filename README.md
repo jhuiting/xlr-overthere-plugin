@@ -16,7 +16,7 @@ The XL Release Overthere plugin allows XL Release to manipulate files and execut
 
 ## Requirements
 
-* XL Release 4.8.1 or later
+* XL Release: 4.8.1 or later
 
 ### Features ###
 
