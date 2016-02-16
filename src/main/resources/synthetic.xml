@@ -19,7 +19,9 @@
         <!-- advanced properties -->
         <property name="temporaryDirectoryPath" category="Advanced" required="false" description="Directory in which temporary files are stored. This directory will be cleaned up when the connection is closed."/>
         <property name="jumpstation" category="Advanced" kind="ci" required="false" referenced-type="remoteScript.Jumpstation" description="Jumpstation that should be used to reach this host."/>
-        <property name="connectionOptions" kind="map_string_string" required="false" category="Advanced" description="Additional connection options passed to the Overthere connection. See the Overthere documentation for a complete list of available options."/>
+
+        <!-- custom properties -->
+        <property name="connectionOptions" kind="map_string_string" required="false" category="Custom" description="Additional connection options passed to the Overthere connection. See the Overthere documentation for a complete list of available options."/>
 
         <!-- internal properties -->
         <property name="protocol" hidden="true" description="Protocol to use when connecting to this host."/>
@@ -88,7 +90,7 @@
 
     <!-- task types -->
 
-    <type type="remoteScript.Overthere" extends="xlrelease.PythonScript">
+    <type type="remoteScript.Overthere" extends="xlrelease.PythonScript" label="Advanced">
         <!-- input properties -->
         <property name="host" kind="ci" referenced-type="remoteScript.OverthereHost" category="input" description="Overthere host to execute the script."/>
         <property name="username" kind="string" required="false" category="input" description="Username to connect with."/>
